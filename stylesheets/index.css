@@ -1,0 +1,32 @@
+.bln-table,
+.bln-table .grid,
+.bln-table .ui-grid {
+    height: 100% !important;
+}
+
+div[bln-panel] {
+    box-shadow: 2px 2px 5px;
+}
+
+body {
+    overflow: hidden;
+}
+
+.booking-item:hover {
+    background-color: #dfdbdb;
+    box-shadow: 2px 2px 2px #b1aaaa;
+    cursor: pointer
+}
+
+.booking-item.selected {
+    background-color: #dfdbdb;
+}
+
+.game-image {
+    max-height: 60px;
+    max-width: 150px;
+}
+
+.filter-toggle {
+    display: inline-block;
+}

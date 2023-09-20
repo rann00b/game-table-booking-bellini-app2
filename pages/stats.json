@@ -1,0 +1,288 @@
+{
+  "name": "stats",
+  "type": "page",
+  "url": "/stats",
+  "params": {},
+  "variables": [
+    {
+      "name": "init",
+      "type": "method",
+      "description": "",
+      "body": "const prod = $ctrl.$env.getProperty(\"prod\") === \"true\";\r\n\r\nif (prod) {\r\n    const userInfo = $ctrl.$cookies.getObject(\"gtb_user_info\");\r\n\r\n    if (userInfo && userInfo.username) $ctrl.userInfo = userInfo;\r\n    else $ctrl.$state.go(\"discord-login\");\r\n}\r\nelse {\r\n    $ctrl.userInfo = {\r\n        username: \"Test User\",\r\n        admin: true\r\n    }\r\n}\r\n\r\n$ctrl.loadStats();",
+      "invokeOnLoad": true,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "gameTableBooking",
+      "type": "open-api",
+      "id": "650adec1ed8245a8e5e24071"
+    },
+    {
+      "name": "$env",
+      "type": "service"
+    },
+    {
+      "name": "$cookies",
+      "type": "service"
+    },
+    {
+      "name": "loadStats",
+      "type": "method",
+      "description": "",
+      "body": "if ($ctrl.$env.getProperty(\"prod\") === \"true\") {\r\n    $ctrl.gameTableBooking.gtb_booking_api_GetTotalPerGame({\r\n        accesstoken: $ctrl.getAccessToken()\r\n    }).then(result => {\r\n        $ctrl.perGameStats = Object.keys(result.data).map(key => ({ game: key, total: result.data[key] }));\r\n    });\r\n\r\n    const dayLabels = {\r\n        monday: \"Lundi\",\r\n        tuesday: \"Mardi\",\r\n        wednesday: \"Mercredi\",\r\n        thursday: \"Jeudi\",\r\n        friday: \"Vendredi\",\r\n        saturday: \"Samedi\",\r\n        sunday: \"Dimanche\"\r\n    }\r\n\r\n    $ctrl.gameTableBooking.gtb_booking_api_GetTotalPerWeekDay({\r\n        accesstoken: $ctrl.getAccessToken()\r\n    }).then(result => {\r\n        $ctrl.perDayStats = Object.keys(result.data).map(key => ({ day: dayLabels[key], total: result.data[key] }));\r\n    });\r\n} else {\r\n    $ctrl.perGameStats = [\r\n        {\r\n            game: \"Age of Sigmar\",\r\n            total: 180\r\n        },\r\n        {\r\n            game: \"Warhammer 40k\",\r\n            total: 250\r\n        },\r\n        {\r\n            game: \"Star War Legion\",\r\n            total: 80\r\n        },\r\n        {\r\n            game: \"A Song of Ice and Fire\",\r\n            total: 12\r\n        }\r\n    ];\r\n\r\n    $ctrl.perDayStats = [\r\n        {\r\n            day: \"Lundi\",\r\n            total: 180\r\n        },\r\n        {\r\n            day: \"Mardi\",\r\n            total: 250\r\n        },\r\n        {\r\n            day: \"Mercredi\",\r\n            total: 80\r\n        },\r\n        {\r\n            day: \"Jeudi\",\r\n            total: 12\r\n        },\r\n        {\r\n            day: \"Vendredi\",\r\n            total: 80\r\n        },\r\n        {\r\n            day: \"Saturday\",\r\n            total: 180\r\n        },\r\n        {\r\n            day: \"Sunday\",\r\n            total: 1\r\n        },\r\n    ]\r\n}\r\n",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "perDayStats",
+      "type": "property",
+      "description": "",
+      "value": ""
+    },
+    {
+      "name": "perGameStats",
+      "type": "property",
+      "description": "",
+      "value": ""
+    },
+    {
+      "name": "getAccessToken",
+      "type": "method",
+      "description": "",
+      "body": "return $ctrl.$cookies.get(\"gtb_access_token\");",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "$state",
+      "type": "service"
+    },
+    {
+      "name": "userInfo",
+      "type": "object",
+      "description": "",
+      "properties": [
+        {
+          "name": "username",
+          "type": "property",
+          "description": "",
+          "value": ""
+        },
+        {
+          "name": "admin",
+          "type": "property",
+          "description": "",
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [],
+      "conditionalClasses": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": ""
+      },
+      "styles": [
+        {
+          "enabled": true,
+          "property": "height",
+          "value": "100% !important"
+        },
+        {
+          "enabled": true,
+          "property": "width",
+          "value": "100% !important"
+        }
+      ],
+      "layout": {
+        "container": {
+          "type": "grid",
+          "columns": [
+            {
+              "type": "span",
+              "value": 1
+            }
+          ],
+          "rows": [
+            {
+              "type": "max-content"
+            },
+            {
+              "type": "span",
+              "value": 1
+            },
+            {
+              "type": "span",
+              "value": 1
+            }
+          ],
+          "items": []
+        }
+      },
+      "children": [
+        {
+          "name": "header",
+          "nodeName": "header",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "grid-item"
+            }
+          },
+          "children": [],
+          "type": "custom-component",
+          "id": "650adec1ed8245a8e5e24079",
+          "expressions": [
+            {
+              "expression": "$ctrl.userInfo",
+              "to": "userInfo"
+            }
+          ]
+        },
+        {
+          "name": "Chart",
+          "nodeName": "bln-chart",
+          "elementId": "",
+          "attributes": [
+            {
+              "property": "core",
+              "value": ""
+            }
+          ],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "grid-item"
+            }
+          },
+          "children": [],
+          "type": "core-component",
+          "id": "chart",
+          "expressions": [
+            {
+              "expression": "\"bar\"",
+              "to": "type"
+            },
+            {
+              "expression": "[{\n    data: $ctrl.perGameStats,\n    label: \"Réservations\",\n    backgroundColor: [\"#EFBE7D\", \"#B1A2CA\", \"#8BD3E6\", \"#E9EC6B\",\n        \"#e15656\"],\n    parsing: {\n        xAxisKey: \"game\",\n        yAxisKey: \"total\"\n    },\n    indexAxis: \"x\"\n}]",
+              "to": "datasets"
+            },
+            {
+              "expression": "\"Nombre de réservation de table par jeu\"",
+              "to": "title"
+            },
+            {
+              "expression": "\"Jeux\"",
+              "to": "axisNameX"
+            },
+            {
+              "expression": "\"Nombre de Réservations\"",
+              "to": "axisNameY"
+            },
+            {
+              "expression": "({\r\n    options: {\r\n        maintainAspectRatio: false\r\n    }\r\n})",
+              "to": "configuration"
+            }
+          ]
+        },
+        {
+          "name": "Chart",
+          "nodeName": "bln-chart",
+          "elementId": "",
+          "attributes": [
+            {
+              "property": "core",
+              "value": ""
+            }
+          ],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "grid-item"
+            }
+          },
+          "children": [],
+          "type": "core-component",
+          "id": "chart",
+          "expressions": [
+            {
+              "expression": "\"line\"",
+              "to": "type"
+            },
+            {
+              "expression": "[{\n    data: $ctrl.perDayStats,\n    label: \"Réservations\",\n    fill: false,\n    backgroundColor: [\"#9f2d2d\"],\n    parsing: {\n        xAxisKey: \"day\",\n        yAxisKey: \"total\"\n    }\n}]",
+              "to": "datasets"
+            },
+            {
+              "expression": "\"Nombre de réservation de table par jour\"",
+              "to": "title"
+            },
+            {
+              "expression": "\"Jours\"",
+              "to": "axisNameX"
+            },
+            {
+              "expression": "\"Nombre de Réservations\"",
+              "to": "axisNameY"
+            },
+            {
+              "expression": "({\r\n    options: {\r\n        maintainAspectRatio: false\r\n    }\r\n})",
+              "to": "configuration"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

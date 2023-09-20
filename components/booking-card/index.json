@@ -1,0 +1,695 @@
+{
+  "type": "custom-component",
+  "name": "booking-card",
+  "nodeName": null,
+  "description": null,
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [],
+      "conditionalClasses": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": ""
+      },
+      "styles": [
+        {
+          "property": "height",
+          "value": "100% !important",
+          "enabled": true
+        },
+        {
+          "property": "width",
+          "value": "100% !important",
+          "enabled": true
+        }
+      ],
+      "layout": {
+        "container": {
+          "type": "grid",
+          "columns": [
+            {
+              "type": "span",
+              "value": 1
+            },
+            {
+              "type": "span",
+              "value": 1
+            },
+            {
+              "type": "span",
+              "value": 1
+            }
+          ],
+          "rows": [
+            {
+              "type": "max-content"
+            },
+            {
+              "type": "max-content"
+            }
+          ],
+          "items": [],
+          "columnGap": "5px"
+        }
+      },
+      "children": [
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "grid-item",
+              "columnSize": 2
+            }
+          },
+          "children": [
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": ""
+              },
+              "styles": [
+                {
+                  "enabled": true,
+                  "property": "height",
+                  "value": "100% !important"
+                },
+                {
+                  "enabled": true,
+                  "property": "width",
+                  "value": "100% !important"
+                }
+              ],
+              "layout": {
+                "container": {
+                  "type": "box",
+                  "orientation": "column",
+                  "crossAxisAlignment": "stretch",
+                  "items": [],
+                  "gap": "5px"
+                },
+                "cell": null
+              },
+              "children": [
+                {
+                  "name": "span",
+                  "nodeName": "span",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": ""
+                  },
+                  "styles": [
+                    {
+                      "property": "font-family",
+                      "value": "var(--bln-navigation-font-family)",
+                      "enabled": true
+                    },
+                    {
+                      "property": "font-weight",
+                      "value": "500",
+                      "enabled": true
+                    }
+                  ],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item",
+                      "growFactor": 1,
+                      "shrinkFactor": 1,
+                      "mainSize": "100%"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "text",
+                      "nodeName": "text",
+                      "textContent": "Date/Heure",
+                      "evaluate": false
+                    }
+                  ]
+                },
+                {
+                  "name": "span",
+                  "nodeName": "span",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": ""
+                  },
+                  "styles": [
+                    {
+                      "property": "font-family",
+                      "value": "var(--bln-navigation-font-family)",
+                      "enabled": true
+                    }
+                  ],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item",
+                      "growFactor": 1,
+                      "shrinkFactor": 1,
+                      "mainSize": "100%"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "text",
+                      "nodeName": "text",
+                      "textContent": "$ctrl.getDateTimeLabel()",
+                      "evaluate": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [
+            {
+              "enabled": true,
+              "property": "height",
+              "value": "100% !important"
+            },
+            {
+              "enabled": true,
+              "property": "width",
+              "value": "100% !important"
+            },
+            {
+              "property": "padding-right",
+              "value": "20px",
+              "enabled": true
+            }
+          ],
+          "layout": {
+            "container": {
+              "type": "grid",
+              "columns": [],
+              "rows": [
+                {
+                  "type": "span",
+                  "value": 1
+                },
+                {
+                  "type": "span",
+                  "value": 1
+                }
+              ],
+              "items": [],
+              "columnAxisAlignment": "end"
+            },
+            "cell": {
+              "type": "grid-item",
+              "rowSize": 2
+            }
+          },
+          "children": [
+            {
+              "name": "Badge",
+              "nodeName": "bln-badge",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "core",
+                  "value": ""
+                }
+              ],
+              "classList": [],
+              "conditionalClasses": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": ""
+              },
+              "styles": [],
+              "layout": {
+                "cell": {
+                  "type": "grid-item"
+                }
+              },
+              "children": [],
+              "type": "core-component",
+              "id": "badge",
+              "expressions": [
+                {
+                  "expression": "$ctrl.getStatusLabel()",
+                  "to": "text"
+                },
+                {
+                  "expression": "$ctrl.getStatusColor()",
+                  "to": "colorScheme"
+                }
+              ]
+            },
+            {
+              "name": "img",
+              "nodeName": "img",
+              "elementId": "",
+              "attributes": [],
+              "classList": [
+                "game-image"
+              ],
+              "conditionalClasses": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": ""
+              },
+              "styles": [],
+              "layout": {
+                "cell": {
+                  "type": "grid-item"
+                }
+              },
+              "children": [],
+              "source": {
+                "evaluate": true,
+                "url": "$ctrl.getGameImage()"
+              }
+            }
+          ]
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "grid-item"
+            }
+          },
+          "children": [
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": ""
+              },
+              "styles": [
+                {
+                  "enabled": true,
+                  "property": "height",
+                  "value": "100% !important"
+                },
+                {
+                  "enabled": true,
+                  "property": "width",
+                  "value": "100% !important"
+                }
+              ],
+              "layout": {
+                "container": {
+                  "type": "box",
+                  "orientation": "column",
+                  "crossAxisAlignment": "stretch",
+                  "items": [],
+                  "gap": "5px"
+                },
+                "cell": null
+              },
+              "children": [
+                {
+                  "name": "span",
+                  "nodeName": "span",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": ""
+                  },
+                  "styles": [
+                    {
+                      "property": "font-family",
+                      "value": "var(--bln-navigation-font-family)",
+                      "enabled": true
+                    },
+                    {
+                      "property": "font-weight",
+                      "value": "500",
+                      "enabled": true
+                    }
+                  ],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item",
+                      "growFactor": 1,
+                      "shrinkFactor": 1,
+                      "mainSize": "100%"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "text",
+                      "nodeName": "text",
+                      "textContent": "Joueurs",
+                      "evaluate": false
+                    }
+                  ]
+                },
+                {
+                  "name": "span",
+                  "nodeName": "span",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": ""
+                  },
+                  "styles": [
+                    {
+                      "property": "font-family",
+                      "value": "var(--bln-navigation-font-family)",
+                      "enabled": true
+                    }
+                  ],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item",
+                      "growFactor": 1,
+                      "shrinkFactor": 1,
+                      "mainSize": "100%"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "text",
+                      "nodeName": "text",
+                      "textContent": "$ctrl.getPlayers()",
+                      "evaluate": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "grid-item"
+            }
+          },
+          "children": [
+            {
+              "name": "div",
+              "nodeName": "div",
+              "elementId": "",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": ""
+              },
+              "styles": [
+                {
+                  "enabled": true,
+                  "property": "height",
+                  "value": "100% !important"
+                },
+                {
+                  "enabled": true,
+                  "property": "width",
+                  "value": "100% !important"
+                }
+              ],
+              "layout": {
+                "container": {
+                  "type": "box",
+                  "orientation": "column",
+                  "crossAxisAlignment": "stretch",
+                  "items": [],
+                  "gap": "5px"
+                },
+                "cell": null
+              },
+              "children": [
+                {
+                  "name": "span",
+                  "nodeName": "span",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": ""
+                  },
+                  "styles": [
+                    {
+                      "property": "font-family",
+                      "value": "var(--bln-navigation-font-family)",
+                      "enabled": true
+                    },
+                    {
+                      "property": "font-weight",
+                      "value": "500",
+                      "enabled": true
+                    }
+                  ],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item",
+                      "growFactor": 1,
+                      "shrinkFactor": 1,
+                      "mainSize": "100%"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "text",
+                      "nodeName": "text",
+                      "textContent": "Points",
+                      "evaluate": false
+                    }
+                  ]
+                },
+                {
+                  "name": "span",
+                  "nodeName": "span",
+                  "elementId": "",
+                  "attributes": [],
+                  "classList": [],
+                  "conditionalClasses": [],
+                  "contentType": "text",
+                  "displayExpression": "",
+                  "events": {},
+                  "iterate": {
+                    "array": "",
+                    "variable": ""
+                  },
+                  "styles": [
+                    {
+                      "property": "font-family",
+                      "value": "var(--bln-navigation-font-family)",
+                      "enabled": true
+                    }
+                  ],
+                  "layout": {
+                    "cell": {
+                      "type": "box-item",
+                      "growFactor": 1,
+                      "shrinkFactor": 1,
+                      "mainSize": "100%"
+                    }
+                  },
+                  "children": [
+                    {
+                      "name": "text",
+                      "nodeName": "text",
+                      "textContent": "$ctrl.booking.points || \"2000\"",
+                      "evaluate": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "getPlayers",
+      "type": "method",
+      "description": "",
+      "body": "return $ctrl.booking?.players?.join(\", \") || \"Player1, Player2\"",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "getStatusLabel",
+      "type": "method",
+      "description": "",
+      "body": "const status = $ctrl.booking?.status || \"pending\";\r\nreturn status === 'accepted' ? 'Validé' : (status === 'canceled' ? 'Annulé' : (status === 'refused' ? 'Refusé' : 'En Attente'))",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "getStatusColor",
+      "type": "method",
+      "description": "",
+      "body": "const status = $ctrl.booking?.status || \"pending\";\r\nreturn status === 'accepted' ? 'green' : (status === 'canceled' ? 'yellow' : (status === 'refused' ? 'red' : 'blue'))",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "getDateTimeLabel",
+      "type": "method",
+      "description": "",
+      "body": "if($ctrl.booking?.dateTime) {\r\n    return moment($ctrl.booking?.dateTime).format(\"DD/MM/yyyy HH:mm\");\r\n}\r\nelse\r\n    return \"2023/07/01 10:30\";",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "getGameImage",
+      "type": "method",
+      "description": "",
+      "body": "if(!$ctrl.booking) return \"\";\r\n\r\nswitch($ctrl.booking.game) {\r\n    case \"Warhammer 40k\": return \"assets/apps/game-table-booking/components/booking-card/warhammer40k_logo.png\";\r\n    case \"Age of Sigmar\": return \"assets/apps/game-table-booking/components/booking-card/aos_logo.png\";\r\n    case \"Star Wars Legion\": return \"assets/apps/game-table-booking/components/booking-card/swl_logo.png\";\r\n    case \"A Song of Ice and Fire\": return \"assets/apps/game-table-booking/components/booking-card/asoiaf_logo.png\";\r\n    case \"Marvel Crisis Protocol\": return \"assets/apps/game-table-booking/components/booking-card/mcp_logo.png\";\r\n    case \"Star Wars Shatterpoint\": return \"assets/apps/game-table-booking/components/booking-card/sws_logo.png\";\r\n    case \"Infinity\": return \"assets/apps/game-table-booking/components/booking-card/infinity_logo.png\";\r\n}",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    }
+  ],
+  "bindings": [
+    {
+      "name": "booking",
+      "type": "<",
+      "description": "",
+      "propertyType": "object",
+      "default": ""
+    }
+  ],
+  "modules": [],
+  "marketplaceId": null,
+  "formControl": null,
+  "externalScripts": [],
+  "externalStylesheets": []
+}

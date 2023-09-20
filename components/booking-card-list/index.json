@@ -1,0 +1,113 @@
+{
+  "type": "custom-component",
+  "name": "booking-card-list",
+  "nodeName": null,
+  "description": null,
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [
+        "booking-item"
+      ],
+      "conditionalClasses": [
+        {
+          "className": "selected",
+          "condition": "$ctrl.selectedBooking  && $ctrl.selectedBooking  === booking"
+        }
+      ],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {
+        "click": "$ctrl.handleBookingClick(booking)"
+      },
+      "iterate": {
+        "array": "$ctrl.bookings",
+        "variable": "booking"
+      },
+      "styles": [
+        {
+          "property": "margin-top",
+          "value": "10px",
+          "enabled": true
+        },
+        {
+          "property": "box-shadow",
+          "value": "2px 2px 2px #b1aaaa",
+          "enabled": true
+        },
+        {
+          "property": "padding",
+          "value": "10px",
+          "enabled": true
+        }
+      ],
+      "children": [
+        {
+          "name": "booking-card",
+          "nodeName": "booking-card",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [],
+          "children": [],
+          "type": "custom-component",
+          "id": "650adec1ed8245a8e5e2407a",
+          "expressions": [
+            {
+              "expression": "booking",
+              "to": "booking"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "handleBookingClick",
+      "type": "method",
+      "description": "",
+      "body": "$ctrl.selectedBooking = booking;",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [
+        "booking"
+      ]
+    }
+  ],
+  "bindings": [
+    {
+      "name": "bookings",
+      "type": "<",
+      "description": "",
+      "propertyType": "array",
+      "default": ""
+    },
+    {
+      "name": "selectedBooking",
+      "type": "=",
+      "description": "",
+      "propertyType": "property",
+      "default": ""
+    }
+  ],
+  "modules": [],
+  "marketplaceId": null,
+  "formControl": null,
+  "externalScripts": [],
+  "externalStylesheets": []
+}

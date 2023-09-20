@@ -1,0 +1,300 @@
+{
+  "name": "discord-login",
+  "type": "page",
+  "url": "/discord-login",
+  "params": {},
+  "variables": [
+    {
+      "name": "$env",
+      "type": "service"
+    },
+    {
+      "name": "discordLogin",
+      "type": "method",
+      "description": "",
+      "body": "window.open($ctrl.$env.getProperty(\"discordAuthUrl\"), \"_self\")",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "checkLoggedIn",
+      "type": "method",
+      "description": "",
+      "body": "const urlParams = new URLSearchParams(window.location.search);\r\nconst authCode = urlParams.get(\"code\");\r\n\r\ntry {\r\n    if (authCode) {\r\n        $ctrl.loadingLoggin = true;\r\n        const response = await $ctrl.gameTableBookingOauth.oauthCallback({\r\n            code: authCode\r\n        });\r\n\r\n        if (!response || !response.data) {\r\n            $ctrl.loadingLoggin = false;\r\n            $ctrl.$notificationManager.show(\"L'authentification a échoué, veuillez contacter l'administrateur.\", {\r\n                color: \"danger\",\r\n                delay: 15000,\r\n                dismissible: true\r\n            });\r\n        }\r\n        else {\r\n            const expires = new Date(Date.now() + response.data.expires_in * 1000);\r\n            $ctrl.$cookies.put(\"gtb_access_token\", response.data.access_token, {\r\n                expires\r\n            });\r\n            $ctrl.$cookies.put(\"gtb_refresh_token\", response.data.refresh_token, {\r\n                expires\r\n            });\r\n        }\r\n\r\n        window.location.search = \"\";\r\n    }\r\n    else {\r\n        const accessToken = $ctrl.$cookies.get(\"gtb_access_token\");\r\n\r\n        if (accessToken) {\r\n            $ctrl.loadingLoggin = true;\r\n            const response = await $ctrl.gameTableBookingOauth.getUserInfo({\r\n                accesstoken: accessToken\r\n            });\r\n            if (Object.keys(response.data) === 0) {\r\n                $ctrl.$notificationManager.show(\"La connection a échoué, vérifiez que votre compte a accès au serveur Discord 'Tableraze Montpellier'.\", {\r\n                    color: \"danger\"\r\n                })\r\n                return;\r\n            }\r\n\r\n            $ctrl.$cookies.put(\"gtb_user_info\", JSON.stringify(response.data));\r\n            $ctrl.$state.go(\"home\");\r\n        }\r\n    }\r\n\r\n} finally {\r\n    if ($ctrl.loadingLoggin) {\r\n        $ctrl.loadingLoggin = false;\r\n        $ctrl.$scope.$apply();\r\n    }\r\n}\r\n\r\n",
+      "invokeOnLoad": true,
+      "isAsync": true,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "$cookies",
+      "type": "service"
+    },
+    {
+      "name": "gameTableBookingOauth",
+      "type": "open-api",
+      "id": "650adec1ed8245a8e5e24070"
+    },
+    {
+      "name": "$state",
+      "type": "service"
+    },
+    {
+      "name": "$location",
+      "type": "service"
+    },
+    {
+      "name": "loadingLoggin",
+      "type": "property",
+      "description": "",
+      "value": "false"
+    },
+    {
+      "name": "$notificationManager",
+      "type": "service"
+    }
+  ],
+  "children": [
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [],
+      "conditionalClasses": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": ""
+      },
+      "styles": [
+        {
+          "enabled": true,
+          "property": "height",
+          "value": "100% !important"
+        },
+        {
+          "enabled": true,
+          "property": "width",
+          "value": "100% !important"
+        }
+      ],
+      "layout": {
+        "container": {
+          "type": "grid",
+          "columns": [
+            {
+              "type": "span",
+              "value": 1
+            }
+          ],
+          "rows": [
+            {
+              "type": "max-content"
+            },
+            {
+              "type": "span",
+              "value": 1
+            }
+          ],
+          "items": []
+        }
+      },
+      "children": [
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [
+            {
+              "enabled": true,
+              "property": "height",
+              "value": "100% !important"
+            },
+            {
+              "enabled": true,
+              "property": "width",
+              "value": "100% !important"
+            }
+          ],
+          "layout": {
+            "container": {
+              "type": "box",
+              "orientation": "column",
+              "crossAxisAlignment": "stretch",
+              "items": []
+            },
+            "cell": {
+              "type": "grid-item"
+            }
+          },
+          "children": [
+            {
+              "name": "img",
+              "nodeName": "img",
+              "elementId": "",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": ""
+              },
+              "styles": [
+                {
+                  "property": "margin-top",
+                  "value": "10px",
+                  "enabled": true
+                }
+              ],
+              "layout": {
+                "cell": {
+                  "type": "box-item",
+                  "growFactor": 1,
+                  "shrinkFactor": 1,
+                  "mainSize": "100%",
+                  "crossAxisAlignment": "center"
+                }
+              },
+              "children": [],
+              "source": {
+                "url": "assets/apps/game-table-booking/tableraze-logo.jpg",
+                "evaluate": false
+              }
+            },
+            {
+              "name": "h1",
+              "nodeName": "h1",
+              "elementId": "",
+              "attributes": [],
+              "classList": [],
+              "conditionalClasses": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": ""
+              },
+              "styles": [
+                {
+                  "property": "text-align",
+                  "value": "center",
+                  "enabled": true
+                },
+                {
+                  "property": "font-family",
+                  "value": "var(--bln-navigation-font-family)",
+                  "enabled": true
+                }
+              ],
+              "layout": {
+                "cell": {
+                  "type": "box-item",
+                  "growFactor": 1,
+                  "shrinkFactor": 1,
+                  "mainSize": "100%"
+                }
+              },
+              "children": [
+                {
+                  "name": "text",
+                  "nodeName": "text",
+                  "textContent": "Système de Réservation de Table",
+                  "evaluate": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "div",
+          "nodeName": "div",
+          "elementId": "",
+          "attributes": [],
+          "classList": [],
+          "conditionalClasses": [],
+          "contentType": "text",
+          "displayExpression": "",
+          "events": {},
+          "iterate": {
+            "array": "",
+            "variable": ""
+          },
+          "styles": [],
+          "layout": {
+            "cell": {
+              "type": "grid-item",
+              "columnAxisAlignment": "center"
+            }
+          },
+          "children": [
+            {
+              "name": "Button",
+              "nodeName": "bln-button",
+              "elementId": "",
+              "attributes": [
+                {
+                  "property": "core",
+                  "value": ""
+                }
+              ],
+              "classList": [],
+              "conditionalClasses": [],
+              "contentType": "text",
+              "displayExpression": "",
+              "events": {},
+              "iterate": {
+                "array": "",
+                "variable": ""
+              },
+              "styles": [],
+              "children": [],
+              "type": "core-component",
+              "id": "button",
+              "expressions": [
+                {
+                  "expression": "\"Se connecter avec Discord\"",
+                  "to": "label"
+                },
+                {
+                  "expression": "\"primary\"",
+                  "to": "type"
+                },
+                {
+                  "expression": "$ctrl.discordLogin()",
+                  "to": "onClick"
+                },
+                {
+                  "expression": "$ctrl.loadingLoggin",
+                  "to": "showLoading"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

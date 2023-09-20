@@ -1,0 +1,49 @@
+/* Modal Header */
+refuse-booking-modal {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+refuse-booking-modal > .modal-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: solid 1px #ccc;
+  border-bottom: none;
+  padding: 10px;
+}
+
+refuse-booking-modal > .modal-header > .modal-title {
+  font-weight: 700;
+}
+
+refuse-booking-modal > .modal-header > .modal-close {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+/* Modal Body */
+refuse-booking-modal > .modal-body {
+  background-color: #fff;
+  border: solid 1px #ccc;
+  min-height: 200px;
+  min-width: 300px;
+  padding: 10px;
+}
+
+/* Modal Footer */
+refuse-booking-modal > .modal-footer {
+  display: flex;
+  background-color: #fff;
+  border: solid 1px #ccc;
+  border-top: none;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+refuse-booking-modal .btn-cancel {
+  margin-right: 0.5rem;
+}

@@ -1,0 +1,107 @@
+{
+  "type": "custom-component",
+  "name": "header",
+  "nodeName": null,
+  "description": null,
+  "children": [
+    {
+      "name": "Navigation",
+      "nodeName": "bln-navigation",
+      "elementId": "",
+      "attributes": [
+        {
+          "property": "core",
+          "value": ""
+        }
+      ],
+      "classList": [],
+      "conditionalClasses": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": ""
+      },
+      "styles": [],
+      "layout": {},
+      "children": [],
+      "type": "core-component",
+      "id": "navigation",
+      "expressions": [
+        {
+          "expression": "[{\n        label: \"Réservations\",\n        evaluateLabel: false,\n        onClick: \"link\",\n        link: {\n            type: \"state\",\n            state: \"home\",\n            parameters: {}\n        },\n        openIn: \"current-window\"\n    },\n    {\n        label: \"Statistiques\",\n        evaluateLabel: false,\n        onClick: \"link\",\n        link: {\n            type: \"state\",\n            state: \"stats\",\n            parameters: {}\n        },\n        openIn: \"current-window\"\n    },\n    {\n        label: \"____username____\",\n        evaluateLabel: false,\n        icon: {\n            name: \"user-circle\",\n            style: \"solid\",\n            type: \"font-icon\",\n            position: \"left\"\n        },\n        menuItems: [{\n            label: \"Se Déconnecter\",\n            evaluateLabel: false,\n            onClick: \"function\",\n            openIn: \"current-window\",\n            icon: {\n                name: \"sign-out-alt\",\n                style: \"solid\",\n                type: \"font-icon\",\n                position: \"left\"\n            },\n            function: $ctrl.onLogout\n        }]\n    }\n]",
+          "to": "menuItems"
+        },
+        {
+          "expression": "false",
+          "to": "showMenuToggle"
+        },
+        {
+          "expression": "\"right\"",
+          "to": "alignment"
+        },
+        {
+          "expression": "\"Système de Réservation de Table\"",
+          "to": "label"
+        },
+        {
+          "expression": "\"https://static.bellini.toroserver.com/TORO/io.toro.game-table-booking/assets/apps/game-table-booking/tableraze-logo.jpg\"",
+          "to": "logo"
+        },
+        {
+          "expression": "\"left\"",
+          "to": "position"
+        }
+      ]
+    }
+  ],
+  "variables": [
+    {
+      "name": "init",
+      "type": "method",
+      "description": "",
+      "body": "if (!$ctrl.userInfo) {\r\n    $ctrl.userInfo = {\r\n        username: \"Test User\"\r\n    }\r\n}\r\n\r\n// Temporary workaround to dynamically set navigation menu item label.\r\nsetTimeout(() => {\r\n    const label = Array.from(document.querySelectorAll(\".menu-label\")).find(e => e.textContent === \"____username____\");\r\n    if (label)\r\n        label.textContent = $ctrl.userInfo.username;\r\n})\r\n",
+      "invokeOnLoad": true,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "onLogout",
+      "type": "method",
+      "description": "",
+      "body": "$ctrl.$cookies.remove(\"gtb_access_token\");\r\n$ctrl.$cookies.remove(\"gtb_refresh_token\");\r\n$ctrl.$cookies.remove(\"gtb_user_info\");\r\n\r\n$ctrl.$state.go(\"discord-login\");",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": []
+    },
+    {
+      "name": "$state",
+      "type": "service"
+    },
+    {
+      "name": "$cookies",
+      "type": "service"
+    }
+  ],
+  "bindings": [
+    {
+      "name": "userInfo",
+      "type": "<",
+      "description": "",
+      "propertyType": "property",
+      "default": ""
+    }
+  ],
+  "modules": [],
+  "marketplaceId": null,
+  "formControl": null,
+  "externalScripts": [],
+  "externalStylesheets": []
+}
